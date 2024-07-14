@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Форма обратной связи</title>
+</head>
+	 <style>
+        html {
+            font-size: 16px;
+        }
+    	 body {
+margin: 0;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.form-container {
+    max-width: 450px;
+    width: 95%;
+    margin: auto;
+    padding: 40px;
+}
+
+#form {
+   
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.4rem 0;
+    outline: none;
+    font-size: 1rem;
+    letter-spacing: 0.75px;
+    border-buttom:1.5px solid rgb(200, 200, 200);
+    border-radius:0;
+    transition: 0.2s ease;
+}
+input-focus {
+	border-color:chocolate;
+}
+form-heading {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.75px;
+}
+
+#submit {
+    border: none;
+    background-color: #DAA520;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 0.6rem 0;
+    width: 150px;
+    margin-left: calc(100% - 150px);
+    box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#submit:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0px 1000px #FFF inset; 
+}
+submit:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+.form-container {
+    max-width: 450px;
+    width: 95%;
+    margin: auto;
+    padding:40px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+label {
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 0.75px;
+    color:#DAA520;
+}
+	</style>
+	</head>
+<body>
+     <div class="form-container">
+        <h3 class="form-heading">Форма для регистрации</h3>
+        <form action="" id="form">
+            <div class="field">
+                <label for="name">Имя</label>
+                <input type="text" id="name">
+            </div>
+            <div class="field">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email">
+            </div>
+            <input type="submit" id="submit">
+        </form>
+    </div>
+<script>
+	var inputs = [].slice.call(document.querySelectorAll('input'));
+	inputs.forEach(function(input) {
+		if(input.getAttribute('type') != 'submit') {
+			console.log(input);
+			input.addEventListener('focusin',focusinInputHandler,false);
+			input.addEventListener('focusout',focusoutInputHandler,false);
+		}
+	});
+    function focusinInputHandler(){
+    	console.log(this.id + 'focus in');
+    }
+    function focusoutInputHandler(){
+    	console.log(this.id + 'focus out');
+    }
+</script>
+</body>
+</html>
